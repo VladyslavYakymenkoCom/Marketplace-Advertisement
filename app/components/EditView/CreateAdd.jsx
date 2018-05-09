@@ -10,7 +10,6 @@ class  CreateAds extends React.Component{
       super(props);   
       this.submit = this.submit.bind(this); 
       this.handleSubmit = this.handleSubmit.bind(this);
-      this.empty = true;
 
       artBase = getArtBase();
       artIdRoute =  (artBase.arts[artBase.arts.length-1].id);
@@ -32,12 +31,11 @@ class  CreateAds extends React.Component{
             Desc:$("#desc").val(),
             Date: (new Date()).toLocaleDateString()
             }; 
-
+  
           artBase.arts.push(article);
   
-          setArtBase(artBase);
+          setArtBase(artBase); 
           
-         this.empty = false;
   };
 
    handleSubmit(e) {
@@ -57,7 +55,7 @@ class  CreateAds extends React.Component{
                 <label htmlFor="desc" className="row">Description:</label>
                 <textarea className="form-control row" required rows="5" id="desc"></textarea>
               </div> 
-            <Link to={`/${artIdRoute+1}`}><button className="btn-lg btn-default row">Create</button></Link>
+            <Link to={`/${artIdRoute+1}`}><button className="btn-lg btn-default row" onClick={this.submit}>Create</button></Link>
           </form>
         </section>); 
   }
