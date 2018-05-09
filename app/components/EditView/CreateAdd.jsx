@@ -3,13 +3,14 @@ import {Link, BrowserRouter}  from 'react-router-dom';
  
 var artIdRoute = 0; 
 var artBase = [];
-
+ 
 class  CreateAds extends React.Component{
 
   constructor(props) {
       super(props);   
       this.submit = this.submit.bind(this); 
       this.handleSubmit = this.handleSubmit.bind(this);
+      this.empty = true;
 
       artBase = getArtBase();
       artIdRoute =  (artBase.arts[artBase.arts.length-1].id);
@@ -36,6 +37,7 @@ class  CreateAds extends React.Component{
   
           setArtBase(artBase);
           
+         this.empty = false;
   };
 
    handleSubmit(e) {
@@ -43,6 +45,7 @@ class  CreateAds extends React.Component{
       }
      
   render(){ 
+ 
       return( 
         <section className="col-lg-8 offset-lg-2 createAddSection">
           <form onSubmit={this.handleSubmit} method="POST">
@@ -53,8 +56,8 @@ class  CreateAds extends React.Component{
               <div className ="form-group" >
                 <label htmlFor="desc" className="row">Description:</label>
                 <textarea className="form-control row" required rows="5" id="desc"></textarea>
-              </div>
-            <Link to={`/${artIdRoute+1}`}><button onClick={this.submit} className="btn-lg btn-default row">Create</button></Link>
+              </div> 
+            <Link to={`/${artIdRoute+1}`}><button className="btn-lg btn-default row">Create</button></Link>
           </form>
         </section>); 
   }

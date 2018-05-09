@@ -62,7 +62,8 @@ class SignIn extends React.Component{
         });
 
         if(mailIsUnique&&!isSignedUp){
-          users.push(user);
+          users.usersBase.push(user);
+          CurrentUser = user;
           setUsers(users);
          }
          else if(!mailIsUnique&&!isSignedUp){

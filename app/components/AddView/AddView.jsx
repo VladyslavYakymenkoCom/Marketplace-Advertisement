@@ -41,26 +41,29 @@ class AddView extends React.Component{
 				    	    </div> 
 				    	    <div className="row d-flex justify-content-center">
 				    	    	<Link to={"/"}> <button className="btn  " onClick={this.deleteArticle}>Delete</button></Link>
-				    	    	 
+				    	    	<Link to={"/"}> <button className="btn  " >To Main</button></Link>
 				    	    </div> 
 					</div>);
 		    }
     	else{ 
 		  	return (  
-		  	<div className="addView row d-flex justify-content-center" >
-		    	    <h1 className="row display-4">{curArt.Title}</h1>
-		    	    <div className="addViewBody row">{curArt.Desc}</div>
-		    	    <div className="row">
-		    	    	<div className="col-lg-6">
-		    	    		<div className="col-lg-2 font-weight-bold">Author:</div>
-		    	    		<div className=" offset-lg-1 col-lg-2">{curArt.Author}</div>
-		    	    	</div>
-		    	    	<div className="col-lg-6">
-		    	    		<div className="offset-lg-5 col-lg-2 font-weight-bold">Date:</div>
-		    	    		<div className="offset-lg-1 col-lg-2">{curArt.Date}</div> 
-		    	    	</div>
-		    	    </div>  
-			</div>);
+		  	<div className="addView " >
+				    	    <h1 className="row display-4 d-flex justify-content-center">{curArt.Title}</h1>
+				    	    <div className="addViewBody row">{curArt.Desc}</div>
+				    	    <div className="row">
+				    	    	<div className="col-lg-6 row">
+				    	    		<div className="col-lg-2 font-weight-bold">Author:</div>
+				    	    		<div className=" offset-lg-1 col-lg-2">{curArt.Author}</div>
+				    	    	</div>
+				    	    	<div className="col-lg-6 row">
+				    	    		<div className="offset-lg-7 col-lg-2 font-weight-bold">Date:</div>
+				    	    		<div className="offset-lg-1 col-lg-2">{curArt.Date}</div> 
+				    	    	</div>
+				    	    </div> 
+				    	    <div className="row d-flex justify-content-center"> 
+				    	    	<Link to={"/"}> <button className="btn  " >To Main</button></Link>
+				    	    </div> 
+					</div>);
 		  }
    	}
 

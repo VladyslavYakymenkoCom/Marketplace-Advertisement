@@ -2,7 +2,7 @@
     "name": "webpackapp",
     "description": "A React.js project using Webpack",
     "version": "1.0.0",
-    "author": "metanit.com",
+    "author": " ",
     "scripts": {
         "dev": "webpack-dev-server --hot --open",
         "build": "webpack"
@@ -13,7 +13,7 @@
         "npm": "^6.0.0",
         "react": "^16.0.0",
         "react-dom": "^16.0.0",
-         "react-router-dom": "^4.2.2"
+        "react-router-dom": "^4.2.2"
     },
     "devDependencies": {
         "babel-core": "^6.26.0",
