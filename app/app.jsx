@@ -10,9 +10,9 @@ ReactDOM.render(
     <Router>
         <Switch>
             <Route exact path="/" component={Index} />
-            <Route path="/edit" component={CreateAds} /> 
-            <Route path="/logout" component={Logout} />   
-            <Route path="/:id/" component={AddView} />
+            <Route   path="/edit" component={CreateAds} /> 
+            <Route   path="/logout" component={Logout} />   
+            <Route   path="/:id/" component={AddView} />
         </Switch>
     </Router>,
     document.querySelector("main")

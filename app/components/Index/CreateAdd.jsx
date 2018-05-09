@@ -1,4 +1,4 @@
-import React from 'react';
+/*import React from 'react';
 import {Link, BrowserRouter}  from 'react-router-dom';
  
 var artIdRoute = 0;
@@ -11,20 +11,22 @@ class  CreateAds extends React.Component{
 
   constructor(props) {
       super(props); 
-      
-      this.submit = this.submit.bind(this); 
+      this.handleSubmit = this.handleSubmit.bind(this);
+      this.submit = this.submit.bind(this);  
   };
  
   submit(){ 
 
+      console.log("Submited");
+
         if($("#title").val().length==0||$("#desc").val().length==0)
         {
-          alert("Value is empty");
+          alert("Fields are empty");
           return;
         }
 
          var article = {
-            id: artIdRoute,
+            id: ++artIdRoute,
             Title:$("#title").val(),
             Author: CurrentUser.login,
             AuthorId : CurrentUser.id,
@@ -32,10 +34,16 @@ class  CreateAds extends React.Component{
             Date: (new Date()).toLocaleDateString()
             }; 
 
+
+
           artBase.arts.push(article);
           setArtBase(artBase);
-          
+           
   };
+
+  handleSubmit(e) {
+        e.preventDefault(); 
+      }
      
   render(){return( 
     <section className="col-lg-8 offset-lg-2 createAddSection">
@@ -55,3 +63,4 @@ class  CreateAds extends React.Component{
 }
 
 module.exports = CreateAds;
+*/

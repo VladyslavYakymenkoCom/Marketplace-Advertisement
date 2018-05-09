@@ -36,12 +36,33 @@ function removeArticleFromBase(articleToRemove) {
     setArtBase(db);
 }
 
+function getUsers() {
+    return JSON.parse(localStorage.getItem("users"));
+}
+
+function setUsers(usersToSet) {
+    localStorage.setItem("users", JSON.stringify(usersToSet));
+}
 
 (function() {
 
     var artBase = getArtBase();
 
-    if (artBase.arts.length == 0) {
+    var users = JSON.parse(localStorage.getItem("users"));
+
+    if (users == null) {
+        users = {
+            usersBase: [{
+                id: 1,
+                login: 'admin',
+                password: '123456'
+            }]
+
+        }
+    }
+
+
+    if (artBase == null) {
         artBase = {
             id: 1,
             arts: [{
@@ -139,5 +160,6 @@ function removeArticleFromBase(articleToRemove) {
         }
 
         setArtBase(artBase);
+        setUsers(users);
     }
 })();

@@ -14,31 +14,61 @@ class SignIn extends React.Component{
  
   submit(){
    
-    if($("#firstName").val().length == 0 && $("#password").val().length == 0)
+    if($("#firstName").val().length == 0 || $("#password").val().length == 0){
+       alert("Fields are empty");
        return;
+     }
 
-    var users = JSON.parse(localStorage.getItem("users"));
- 
+    var users = getUsers();  
+
     var isSignedUp = false;
 
-    var user = {
-         id:++users[users.length-1].id,
-         login:$("#firstName").val(),
-         password:$("#password").val()
-    };
+    var mailIsUnique = true;
 
-     users.forEach(function(element){
-       if(element.login == user.login&& element.password == user.password){
+    if(users.usersBase==null){
+        var user = {
+           id:1,
+           login:$("#firstName").val(),
+           password:$("#password").val() 
+      };
+ 
+      CurrentUser = user;
+      users = [];
+
+      users.usersBase.push(user);
+      setUsers(users);
+
+
+    }
+    else{
+
+      var user = {
+           id:users.usersBase[users.usersBase.length-1].id+1,
+           login:$("#firstName").val(),
+           password:$("#password").val()
+      };
+
+     users.usersBase.forEach(function(element){
+       if(element.login == user.login&& element.password == user.password){ 
           isSignedUp = true;
           CurrentUser = element;  
           }
         });
  
-        if(!isSignedUp){
-          users.push(user);
-          localStorage.setItem("users", JSON.stringify(users));
-         }
+      users.usersBase.forEach(function(element){
+       if(element.login == user.login){
+           mailIsUnique = false; 
+          }
+        });
 
+        if(mailIsUnique&&!isSignedUp){
+          users.push(user);
+          setUsers(users);
+         }
+         else if(!mailIsUnique&&!isSignedUp){
+          alert("Mail exists already");
+         }
+      }
   };
 
    handleSubmit(e) {
@@ -51,11 +81,11 @@ class SignIn extends React.Component{
                 <form onSubmit={this.handleSubmit} id="SignIn row">
 
                       <div className="form-group row">
-                          <input type="text" className="form-control col-lg-8" required name="FirstName" autoComplete="given-name" pattern="[a-zA-Z]+" placeholder="First Name" id="firstName"/>
+                          <input type="text" className="form-control col-lg-8" required name="FirstName" autoComplete="given-name" pattern="[a-zA-Z]+" placeholder="User name" defaultValue="admin" id="firstName"/>
                       </div>
 
                        <div className="form-group  row">
-                            <input type="password" className="form-control col-lg-8" name="Password" pattern=".{6,}" required placeholder="Password" id="password"/>
+                            <input type="password" className="form-control col-lg-8" name="Password" pattern=".{6,}" required placeholder="Password" defaultValue="123456" id="password"/>
                         </div>
 
                         <div className="row submitBtnSection">

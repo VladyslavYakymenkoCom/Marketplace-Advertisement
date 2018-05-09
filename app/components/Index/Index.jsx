@@ -1,8 +1,9 @@
 import React from 'react';
-import CreateAdd from './CreateAddSection.jsx';
+import CreateAddSection from './CreateAddSection.jsx';
 import SignIn from './SignIn.jsx';
 import AddsList from './AddsList.jsx';
 import AccountInfo from './AccountInfo.jsx';  
+import CreateAdd from './CreateAdd.jsx'
 
 class Index extends React.Component{
 
@@ -17,7 +18,7 @@ class Index extends React.Component{
   		 return (<div> 
   		 			<AccountInfo/>
 			        <AddsList/> 
-			        <CreateAdd></CreateAdd>
+			        <CreateAddSection></CreateAddSection>
 			    </div>);
  		} 
   } 

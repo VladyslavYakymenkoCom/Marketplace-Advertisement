@@ -26,9 +26,8 @@ class AddsList extends React.Component{
 				  	this.artBase.arts.map(function(item,i){
 				  		if(i%5==0)
 				  		return <Link key={i+1} to={"/"}> <li id={i/5+1} onClick={function(e){ 
-				  			$(`.active`).removeClass("active");
+				  			 
 				  			paginationIndex = i+1;
-				  			$(e.target).addClass("active");
 				  		} 
 				  	} className="page-item page-link"  > {i/5+1} </li></Link>  
 				  	}) 
